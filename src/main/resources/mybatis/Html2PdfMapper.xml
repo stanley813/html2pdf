@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zjh.mapper.Html2PdfMapper">
+
+    <select id="getTodayUrlInfo" resultType="com.zjh.domain.ReportPdf">
+        select id as "id",
+        patient_id as "patientId",
+        id_extension as "idExtension",
+        reportverifytime as "reportTime"
+        from V_REPORT_PDF
+    </select>
+
+    <select id="getReportTime" resultType="Date">
+        select reportverifytime
+        from act_obs where id_extension =  #{idExtension}
+    </select>
+</mapper>
